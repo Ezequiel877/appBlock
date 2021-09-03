@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navegacion"
+    app:startDestination="@id/blankRegister">
+
+    <fragment
+        android:id="@+id/blankHome"
+        android:name="com.example.blogapp.IU.home.HomeD.BlankHome"
+        android:label="fragment_blank_home"
+        tools:layout="@layout/fragment_blank_home" />
+    <fragment
+        android:id="@+id/blankRegister"
+        android:name="com.example.blogapp.IU.home.Register.BlankRegister"
+        android:label="fragment_blank_register"
+        tools:layout="@layout/fragment_blank_register" >
+        <action
+            android:id="@+id/action_blankRegister_to_blankHome"
+            app:destination="@id/blankHome"
+            app:enterAnim="@anim/anim"
+            app:exitAnim="@anim/anim3"
+            app:popEnterAnim="@anim/anim2"
+            app:popExitAnim="@anim/anim4" />
+        <action
+            android:id="@+id/action_blankRegister_to_blankLogin"
+            app:destination="@id/blankLogin"
+            app:enterAnim="@anim/anim2"
+            app:exitAnim="@anim/anim4"
+            app:popEnterAnim="@anim/anim"
+            app:popExitAnim="@anim/anim3" />
+    </fragment>
+    <fragment
+        android:id="@+id/blankLogin"
+        android:name="com.example.blogapp.IU.home.Register.BlankLogin"
+        android:label="fragment_blank_login"
+        tools:layout="@layout/fragment_blank_login" >
+        <action
+            android:id="@+id/action_blankLogin_to_blanksetupPROFILE3"
+            app:destination="@id/blanksetupPROFILE" />
+    </fragment>
+    <fragment
+        android:id="@+id/camera"
+        android:name="com.example.blogapp.IU.home.HomeD.Blankcamera"
+        android:label="fragment_blankcamera"
+        tools:layout="@layout/fragment_blankcamera" />
+    <fragment
+        android:id="@+id/blanksetupPROFILE"
+        android:name="com.example.blogapp.IU.home.Register.BlanksetupPROFILE"
+        android:label="fragment_blanksetup_p_r_o_f_i_l_e"
+        tools:layout="@layout/fragment_blanksetup_p_r_o_f_i_l_e" >
+        <action
+            android:id="@+id/action_blanksetupPROFILE_to_blankHome2"
+            app:destination="@id/blankHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/opcion"
+        android:name="com.example.blogapp.IU.home.home.adapter.opcion"
+        android:label="fragment_opcion"
+        tools:layout="@layout/fragment_opcion" />
+</navigation>
