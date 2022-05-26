@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item android:id="@+id/blankHome"
-        android:title="home"/>
+        android:title="Productos"/>
+
     <item android:id="@+id/camera"
-        android:title="perfil"/>
-    <item android:id="@+id/opcion"
-        android:title="favoritos"/>
+        android:title="Ordenes"/>
+
+    <item android:id="@+id/frgmentProduc"
+        android:title="Estado de ordenes"/>
 </menu>

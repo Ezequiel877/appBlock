@@ -1,9 +1,12 @@
 package com.example.blogapp.IU.home.Register
 
 import android.os.Bundle
+import android.preference.PreferenceManager
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.edit
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -13,7 +16,10 @@ import com.example.blogapp.Domien.Login.homeScremLogin
 import com.example.blogapp.IU.home.home.adapter.Result
 import com.example.blogapp.R
 import com.example.blogapp.data.model.Remote.repoLogin
+import com.example.blogapp.data.model.contantes
 import com.example.blogapp.databinding.FragmentBlankLoginBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class BlankLogin : Fragment(R.layout.fragment_blank_login) {
     private lateinit var binding: FragmentBlankLoginBinding
@@ -38,24 +44,26 @@ class BlankLogin : Fragment(R.layout.fragment_blank_login) {
     }
 
     private fun createUser(email: String, password: String, user: String) {
-modelView.singUn(email, password, user).observe(viewLifecycleOwner, Observer {
-    when(it){
-        is Result.Loading -> {
-            binding.progresRigt.visibility=View.VISIBLE
-            binding.buttonUp.isEnabled=false
-        }
-        is Result.Succes ->{
-            binding.progresRigt.visibility=View.GONE
-            findNavController().navigate(R.id.action_blankLogin_to_blanksetupPROFILE3)
-        }
-        is Result.Failure ->{
-            binding.progresRigt.visibility=View.GONE
-            binding.buttonUp.isEnabled=true
-            Toast.makeText(requireContext(), "error:${it.exception}", Toast.LENGTH_SHORT).show()
-        }
+        modelView.singUn(email, password, user).observe(viewLifecycleOwner, Observer {
+            when (it) {
+                is Result.Loading -> {
+                    binding.progresRigt.visibility = View.VISIBLE
+                    binding.buttonUp.isEnabled = false
+                }
+                is Result.Succes -> {
+                    binding.progresRigt.visibility = View.GONE
+                    val navegacion=BlankLoginDirections.actionBlankLoginToFrgmentProduc(binding.InPutusername.text.toString())
+                    findNavController().navigate(navegacion)
+                }
+                is Result.Failure -> {
+                    binding.progresRigt.visibility = View.GONE
+                    binding.buttonUp.isEnabled = true
+                    Toast.makeText(requireContext(), "error:${it.exception}", Toast.LENGTH_SHORT)
+                        .show()
+                }
 
-    }
-})
+            }
+        })
     }
 
     private fun valided(
@@ -91,4 +99,5 @@ modelView.singUn(email, password, user).observe(viewLifecycleOwner, Observer {
         }
         return false
     }
+
 }

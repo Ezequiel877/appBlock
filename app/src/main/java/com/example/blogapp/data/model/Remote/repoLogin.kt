@@ -1,17 +1,8 @@
 package com.example.blogapp.data.model.Remote
 
-import android.app.Activity
-import android.app.AlertDialog
-import android.content.ActivityNotFoundException
-import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import android.provider.MediaStore
-import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import com.example.blogapp.IU.home.home.adapter.Result
-import com.example.blogapp.R
-import com.example.blogapp.data.model.dataIn
+import com.example.blogapp.data.model.DataSource
 import com.example.blogapp.data.model.user
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -61,11 +52,11 @@ suspend fun getPost(ImagenBITmap: Bitmap, descripcion: String){
     val intent = firebase.putBytes(baos.toByteArray()).await().storage.downloadUrl.await().toString()
     user?.let {
         it.displayName?.let {  display->
-        FirebaseFirestore.getInstance().collection("datos_post").add(dataIn(id = display,
-        post_imagen = it.photoUrl.toString(),
-            postTime = intent,
-            email = descripcion
-        ))
+        FirebaseFirestore.getInstance().collection("datos_post").add(DataSource(nombre = display,
+                imagen = it.photoUrl.toString(),
+                detalles = intent,
+                ImagenD = descripcion
+            ))
         }
     }
 

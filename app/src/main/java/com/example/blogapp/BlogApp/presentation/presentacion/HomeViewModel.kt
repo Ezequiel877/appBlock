@@ -8,10 +8,10 @@ import com.example.blogapp.IU.home.home.adapter.Result
 import kotlinx.coroutines.Dispatchers
 
 class HomeViewModel(private var home: HomeScreemRepo) : ViewModel() {
-    fun getLetterPost() = liveData(Dispatchers.IO) {
+    fun getLetterPost(id :String) = liveData(Dispatchers.IO) {
         emit(Result.Loading())
         try {
-            emit(home.getLetterPost())
+            emit(home.getLetterPost(id))
 
         } catch (e: Exception) {
             emit(Result.Failure(e))

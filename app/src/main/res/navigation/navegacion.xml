@@ -9,19 +9,16 @@
         android:id="@+id/blankHome"
         android:name="com.example.blogapp.IU.home.HomeD.BlankHome"
         android:label="fragment_blank_home"
-        tools:layout="@layout/fragment_blank_home" />
+        tools:layout="@layout/fragment_blank_home" >
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/blankRegister"
         android:name="com.example.blogapp.IU.home.Register.BlankRegister"
         android:label="fragment_blank_register"
         tools:layout="@layout/fragment_blank_register" >
-        <action
-            android:id="@+id/action_blankRegister_to_blankHome"
-            app:destination="@id/blankHome"
-            app:enterAnim="@anim/anim"
-            app:exitAnim="@anim/anim3"
-            app:popEnterAnim="@anim/anim2"
-            app:popExitAnim="@anim/anim4" />
         <action
             android:id="@+id/action_blankRegister_to_blankLogin"
             app:destination="@id/blankLogin"
@@ -29,6 +26,15 @@
             app:exitAnim="@anim/anim4"
             app:popEnterAnim="@anim/anim"
             app:popExitAnim="@anim/anim3" />
+        <action
+            android:id="@+id/action_blankRegister_to_frgmentProduc"
+            app:destination="@id/frgmentProduc" />
+        <action
+            android:id="@+id/action_blankRegister_to_frgmentProduc2"
+            app:destination="@id/frgmentProduc" />
+        <action
+            android:id="@+id/action_blankRegister_to_blankHome"
+            app:destination="@id/blankHome" />
     </fragment>
     <fragment
         android:id="@+id/blankLogin"
@@ -36,8 +42,8 @@
         android:label="fragment_blank_login"
         tools:layout="@layout/fragment_blank_login" >
         <action
-            android:id="@+id/action_blankLogin_to_blanksetupPROFILE3"
-            app:destination="@id/blanksetupPROFILE" />
+            android:id="@+id/action_blankLogin_to_frgmentProduc"
+            app:destination="@id/frgmentProduc" />
     </fragment>
     <fragment
         android:id="@+id/camera"
@@ -48,14 +54,26 @@
         android:id="@+id/blanksetupPROFILE"
         android:name="com.example.blogapp.IU.home.Register.BlanksetupPROFILE"
         android:label="fragment_blanksetup_p_r_o_f_i_l_e"
-        tools:layout="@layout/fragment_blanksetup_p_r_o_f_i_l_e" >
-        <action
-            android:id="@+id/action_blanksetupPROFILE_to_blankHome2"
-            app:destination="@id/blankHome" />
+        tools:layout="@layout/fragment_blanksetup_p_r_o_f_i_l_e" />
+    <fragment
+        android:id="@+id/addProductoDialog"
+        android:name="com.example.blogapp.Card.AddProductoDialog"
+        android:label="fragment_add_producto_dialog"
+        tools:layout="@layout/fragment_add_producto_dialog" >
+        <argument
+            android:name="id"
+            app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/opcion"
-        android:name="com.example.blogapp.IU.home.home.adapter.opcion"
-        android:label="fragment_opcion"
-        tools:layout="@layout/fragment_opcion" />
+        android:id="@+id/frgmentProduc"
+        android:name="com.example.blogapp.IU.home.HomeD.FrgmentProduc"
+        android:label="fragment_frgment_produc"
+        tools:layout="@layout/fragment_frgment_produc" >
+        <action
+            android:id="@+id/action_frgmentProduc_to_addProductoDialog"
+            app:destination="@id/addProductoDialog" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
 </navigation>

@@ -1,33 +1,63 @@
 {
   "project_info": {
-    "project_number": "511790246648",
-    "project_id": "blockapp-519ab",
-    "storage_bucket": "blockapp-519ab.appspot.com"
+    "project_number": "134246572873",
+    "firebase_url": "https://kampasmobilcash-default-rtdb.firebaseio.com",
+    "project_id": "kampasmobilcash",
+    "storage_bucket": "kampasmobilcash.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:511790246648:android:9273a56c0dddb4ed97690d",
+        "mobilesdk_app_id": "1:134246572873:android:e4d8c545805af89dcfb098",
         "android_client_info": {
           "package_name": "com.example.blogapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "511790246648-mrlaqji9u441jup96gj9uchviis6gfjd.apps.googleusercontent.com",
+          "client_id": "134246572873-v6g0cqpaqpb2mjg6r9f179oe3i83rsst.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDkKyZaDTCSqj_J3diT8s2-fjArGjgCY2A"
+          "current_key": "AIzaSyDXojOPM1v7xnZGEO5XTc_lvRd-2kBrcNA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "511790246648-mrlaqji9u441jup96gj9uchviis6gfjd.apps.googleusercontent.com",
+              "client_id": "134246572873-v6g0cqpaqpb2mjg6r9f179oe3i83rsst.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134246572873:android:e9aaa003b46c4bf5cfb098",
+        "android_client_info": {
+          "package_name": "com.example.kampasmobil2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134246572873-v6g0cqpaqpb2mjg6r9f179oe3i83rsst.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXojOPM1v7xnZGEO5XTc_lvRd-2kBrcNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134246572873-v6g0cqpaqpb2mjg6r9f179oe3i83rsst.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

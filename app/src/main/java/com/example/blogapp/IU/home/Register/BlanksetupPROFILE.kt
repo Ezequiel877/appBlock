@@ -38,15 +38,14 @@ class BlanksetupPROFILE : Fragment(R.layout.fragment_blanksetup_p_r_o_f_i_l_e) {
             imagenbitmap?.let { dt ->
                 if (user.isNotEmpty()) {
                     viewmodel.getPhoto(imagenBitmap = dt, name = user)
-                        .observe(viewLifecycleOwner, { result ->
-                            when(result) {
+                        .observe(viewLifecycleOwner) { result ->
+                            when (result) {
                                 is Result.Loading -> {
                                     alerd.show()
 
                                 }
                                 is Result.Succes -> {
                                     alerd.dismiss()
-                                    findNavController().navigate(R.id.action_blanksetupPROFILE_to_blankHome2)
                                 }
                                 is Result.Failure -> {
                                     alerd.dismiss()
@@ -55,7 +54,7 @@ class BlanksetupPROFILE : Fragment(R.layout.fragment_blanksetup_p_r_o_f_i_l_e) {
                                 }
 
                             }
-                        })
+                        }
                 }
             }
         }
