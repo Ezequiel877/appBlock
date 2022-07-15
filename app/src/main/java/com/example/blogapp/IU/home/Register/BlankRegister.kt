@@ -15,11 +15,11 @@ import com.example.blogapp.BlogApp.presentation.presentacion.viewModel2
 import com.example.blogapp.Domien.Login.homeScremLogin
 import com.example.blogapp.IU.home.home.adapter.Result
 import com.example.blogapp.R
-import com.example.blogapp.data.model.DataSource
+import com.example.blogapp.data.model.Comercios
 import com.example.blogapp.data.model.Remote.repoLogin
 import com.example.blogapp.data.model.SharedPreference
-import com.example.blogapp.data.model.contantes
-import com.example.blogapp.data.model.user
+import com.example.blogapp.data.model.constantes
+
 import com.example.blogapp.databinding.FragmentBlankRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,8 +27,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 class BlankRegister : Fragment(R.layout.fragment_blank_register) {
 
     var sharePref: SharedPreference? = null
-    var selectProducto = ArrayList<user>()
-    var product: user? = null
+    var selectProducto = ArrayList<Comercios>()
+    var product: Comercios? = null
     private lateinit var binding: FragmentBlankRegisterBinding
     private val firabaseAuth by lazy { FirebaseAuth.getInstance() }
     private val modelView by viewModels<viewModel2> { factory(homeScremLogin(repoLogin())) }
@@ -58,16 +58,16 @@ class BlankRegister : Fragment(R.layout.fragment_blank_register) {
             val usertoken = FirebaseAuth.getInstance().uid
             if (usertoken != null) {
                 val preference = PreferenceManager.getDefaultSharedPreferences(this.context)
-                val token = preference.getString(contantes.TOKEN_ID, null)
+                val token = preference.getString(constantes.TOKEN_ID, null)
 
                 token?.let {
                     val firebase = FirebaseFirestore.getInstance()
-                    val tokenmap = hashMapOf(Pair(contantes.TOKEN_ID, token))
+                    val tokenmap = hashMapOf(Pair(constantes.TOKEN_ID, token))
                     val db = firebase.collection("comercion").document(usertoken)
                     db.collection("token").add(tokenmap).addOnSuccessListener {
                         Log.d("TAGTOKENSEGUARDO", "createToken: $token")
                         preference.edit {
-                            putString(contantes.TOKEN_ID, null)
+                            putString(constantes.TOKEN_ID, null)
                                 .apply()
                         }
                     }.addOnFailureListener {
@@ -80,7 +80,7 @@ class BlankRegister : Fragment(R.layout.fragment_blank_register) {
 
     }
     private fun datosModelShared(){
-        product= user(binding.nombre.text.toString())
+        product= Comercios(binding.nombre.text.toString())
         selectProducto.add(product!!)
         sharePref?.save("id", selectProducto)
     }

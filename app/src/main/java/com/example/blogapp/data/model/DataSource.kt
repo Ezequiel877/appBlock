@@ -18,5 +18,47 @@ data class DataSource(
     val picture: java.sql.Timestamp? = null,
 )
 
-data class user(val email: String = "", val username: String = "", val photo: String = "")
-data class Producto(val name:String="", val descripcion:String="", val precio:Int=0,val cantidad:Int=0)
+data class Comercios(val email: String = "", val contraseña:String="", val id: String = "", val photo: String = "", val direccioo:String="", val horarios:String="")
+
+data class Producto(@get:com.google.firebase.firestore.Exclude var id:String="", var nombre:String="", var descripcion:String="", val precio:String=""
+
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Producto
+
+        if (id != other.id) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return id.hashCode()
+    }
+}
+
+
+data class Orden(@get:com.google.firebase.firestore.Exclude var id:String="",var name:String="", val product:Map<String, ProductoOrden> = hashMapOf(), val totalPrice:Int=0, val status:Int=0
+
+
+
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Orden
+
+        if (id != other.id) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return id.hashCode()
+    }
+
+}
+data class ProductoOrden(@get:com.google.firebase.firestore.Exclude var id:String="",var name:String="", val cantidad:Int=0)

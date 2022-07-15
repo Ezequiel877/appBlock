@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/imagenShoppingBag"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="12dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginEnd="12dp"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:paddingHorizontal="0dp"
+    android:paddingTop="12dp"
+    app:layout_constraintEnd_toStartOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imagen"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            tools:background="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/texName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="nombre"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textviewCantidad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:text="hola nombre"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/bntdELETE"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:textAlignment="center">
+
+        <TextView
+            android:id="@+id/texviewPrecioFinal"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:ems="3"
+            tools:ignore="MissingConstraints" />
+
+
+        <ImageButton
+            android:id="@+id/bntMas"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/Textview1Cantidad"
+            android:layout_width="37dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="12dp"
+            android:ems="3"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/bntMENOS"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            tools:ignore="MissingConstraints" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

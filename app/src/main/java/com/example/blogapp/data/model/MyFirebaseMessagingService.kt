@@ -25,7 +25,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService(){
     private fun usuarioId(newToken:String){
         val preferce= PreferenceManager.getDefaultSharedPreferences(this)
         preferce.edit {
-            putString(contantes.TOKEN_ID, newToken)
+            putString(constantes.TOKEN_ID, newToken)
                 .apply()
         }
 
@@ -54,7 +54,7 @@ class MyFirebaseMessagingService:FirebaseMessagingService(){
             .setContentIntent(pedingIntent)
         val notificationManager=getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            val channel=NotificationChannel(chanelid, "Generales", NotificationManager.IMPORTANCE_DEFAULT)
+            val channel=NotificationChannel(chanelid, "Generales", NotificationManager.IMPORTANCE_HIGH)
             notificationManager.createNotificationChannel(channel)
         }
         notificationManager.notify(0, notificationBuilder.build())

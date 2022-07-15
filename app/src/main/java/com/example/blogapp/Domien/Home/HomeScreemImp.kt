@@ -7,5 +7,6 @@ import com.example.blogapp.data.model.Producto
 
 class HomeScreemImp(private var dataRepo: DataHomeRepo): HomeScreemRepo {
     override suspend fun getLetterPost(id :String): Result<List<Producto>> = dataRepo.getLeterPost(id)
+    override suspend fun getOrdenes(id :String): Result<List<Producto>> = dataRepo.getOrdenes(id)
 
 }

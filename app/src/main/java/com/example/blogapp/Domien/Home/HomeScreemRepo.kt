@@ -6,5 +6,6 @@ import com.example.blogapp.data.model.Producto
 
 interface HomeScreemRepo {
     suspend fun getLetterPost(id :String): Result<List<Producto>>
+    suspend fun getOrdenes(id :String): Result<List<Producto>>
 
 }

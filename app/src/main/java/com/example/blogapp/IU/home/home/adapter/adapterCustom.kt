@@ -3,46 +3,62 @@ package com.example.blogapp.IU.home.home.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.blogapp.Domien.Home.onListenerLong
+import com.example.blogapp.IU.home.HomeD.BlankHome
+import com.example.blogapp.data.model.Orden
 import com.example.blogapp.databinding.AllClientesBinding
-import com.example.blogapp.data.model.DataSource
 import com.example.blogapp.data.model.Producto
 
-class adapterCustom(private val dataIn: List<Producto>, private val listener:onListenerLong) :
-    RecyclerView.Adapter<BaseViewHolder<*>>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*> {
-        val viewBinding =
-            AllClientesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return HolderView(viewBinding, parent.context)
+class adapterCustom(private val dataIn: MutableList<Producto>, private val listener:onListenerLong) :
+    RecyclerView.Adapter<adapterCustom.HolderViewHome>() {
+
+    interface OnModelClick {
+        fun onmodelClick(model: Producto)
+
     }
 
-    override fun onBindViewHolder(holder: BaseViewHolder<*>, position: Int) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):HolderViewHome {
+        val viewBinding = AllClientesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val item=HolderViewHome(viewBinding, parent.context)
 
-        when (holder) {
-            is HolderView -> holder.bind(dataIn[position])
+        return item
+    }
+
+    override fun onBindViewHolder(holder: HolderViewHome, position: Int) {
+
+        val listHome=dataIn[position]
+        holder.datosRun(listHome)
+        holder.bindin.textView3.text=listHome.descripcion
+        holder.bindin.texName.text=listHome.nombre
+    }
+    class ProductoListener(val clickListener: (producto: Producto)->Unit) {
+        fun onClick(producto: Producto)= clickListener(producto)
+    }
+    fun add(producto: Producto){
+        if (!dataIn.contains(producto)){
+            dataIn.add(producto)
+            notifyItemInserted(dataIn.size -1)
         }
     }
 
     override fun getItemCount(): Int = dataIn.size
-    inner class HolderView(val bindin: AllClientesBinding, val context: Context) :
-        BaseViewHolder<Producto>(bindin.root) {
-        override fun bind(item: Producto) {
-           // Glide.with(context).load(item.cantidad).centerCrop().into(bindin.textViewimage)
-            //Glide.with(context).load(item.cantidad).centerCrop().into(bindin.imagen)
-            bindin.textView3.text=item.descripcion.toString()
-            bindin.texName.text = item.name.toString()
-            bindin.tex2.text = item.descripcion.toString()
-           setListenr(item)
+
+    inner class HolderViewHome(var bindin: AllClientesBinding, val context: Context) :
+        RecyclerView.ViewHolder(bindin.root) {
 
 
-        }
-        fun setListenr(product:Producto){
-            bindin.root.setOnClickListener { listener.onClickListner(product) }
-            bindin.root.setOnClickListener{ listener.onlongListener(product)
+        fun datosRun(producto: Producto){
+            bindin.root.setOnLongClickListener {
+                listener.onlongListener(producto)
                 true
             }
+            bindin.root.setOnClickListener {
+                listener.onClickListner(producto)
+            }
         }
+
     }
+
 }

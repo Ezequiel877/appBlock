@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                     binding.bottomNavigationView.show()
                     Toast.makeText(this, "hola", Toast.LENGTH_SHORT).show()
                 }
-                R.id.camera -> {
+                R.id.ordenStar -> {
                     binding.bottomNavigationView.show()
                 }
                 R.id.frgmentProduc -> {

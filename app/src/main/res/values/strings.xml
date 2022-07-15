@@ -3,4 +3,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="default_notification_channel_id">fcm_default_channel</string>
+
+    <string name="orden_status">Estado: %1$s</string>
+
+    <string name="orden_track_">Desconocido</string>
+    <string name="status_pedido">Pedido</string>
+    <string name="status_preparando">Preparando</string>
+    <string name="status_enviado">Enviado</string>
+    <string name="status_entregado">Entregado</string>
 </resources>

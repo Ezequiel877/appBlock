@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.liveData
 import com.example.blogapp.Domien.Login.HomeRepoLogin
 import com.example.blogapp.IU.home.home.adapter.Result
+import com.example.blogapp.data.model.Comercios
 import kotlinx.coroutines.Dispatchers
 
 class viewModel2(private val login: HomeRepoLogin) : ViewModel() {
@@ -18,10 +19,10 @@ class viewModel2(private val login: HomeRepoLogin) : ViewModel() {
             emit(Result.Failure(e))
         }
     }
-        fun singUn(email: String, passwork: String, username:String) = liveData(Dispatchers.IO) {
+        fun singUn(nombre:String,email: String, passwork: String) = liveData(Dispatchers.IO) {
             emit(Result.Loading())
             try {
-                emit(Result.Succes(login.longIN(email, passwork, username)))
+                emit(Result.Succes(login.longIN(nombre, email, passwork)))
 
             } catch (e: Exception) {
                 emit(Result.Failure(e))

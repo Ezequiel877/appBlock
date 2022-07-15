@@ -3,6 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/drawable/icon_orden_status.xml" value="0.2385" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/all_clientes.xml" value="0.26875" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/detalleshppingbag.xml" value="0.12291666666666666" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_add_producto_dialog.xml" value="0.26875" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_blank_home.xml" value="0.26875" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_blank_login.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_blank_register.xml" value="0.12291666666666666" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_blankcamera.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_blanksetup_p_r_o_f_i_l_e.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_car.xml" value="0.25" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_detalle_orden.xml" value="0.12291666666666666" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_frgment_produc.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_orden_star.xml" value="0.25" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_producto_add.xml" value="0.12291666666666666" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/layout/ite_orden__inflate.xml" value="0.25" />
+        <entry key="..\:/Users/Rodriguez Yonatan/AndroidStudioProjects/appBlock/app/src/main/res/menu/menu.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/yonat/AndroidStudioProjects/appBlock/app/src/main/res/layout/add_producto.xml" value="0.19067028985507245" />
         <entry key="..\:/Users/yonat/AndroidStudioProjects/appBlock/app/src/main/res/layout/all_clientes.xml" value="0.17074275362318841" />
         <entry key="..\:/Users/yonat/AndroidStudioProjects/appBlock/app/src/main/res/layout/fragment_add_producto_dialog.xml" value="0.19067028985507245" />

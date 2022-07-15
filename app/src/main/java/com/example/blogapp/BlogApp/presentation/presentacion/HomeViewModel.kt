@@ -19,8 +19,6 @@ class HomeViewModel(private var home: HomeScreemRepo) : ViewModel() {
     }
 }
 
-
-
     class HomeScreemFactotry(private val home: HomeScreemRepo) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(dataIn: Class<T>): T {
             return dataIn.getConstructor(HomeScreemRepo::class.java).newInstance(home)

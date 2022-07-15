@@ -13,6 +13,12 @@
         <argument
             android:name="id"
             app:argType="string" />
+        <action
+            android:id="@+id/action_blankHome_to_addProductoDialog"
+            app:destination="@id/addProductoDialog" />
+        <action
+            android:id="@+id/action_blankHome_to_productoAdd2"
+            app:destination="@id/productoAdd2" />
     </fragment>
     <fragment
         android:id="@+id/blankRegister"
@@ -44,6 +50,9 @@
         <action
             android:id="@+id/action_blankLogin_to_frgmentProduc"
             app:destination="@id/frgmentProduc" />
+        <action
+            android:id="@+id/action_blankLogin_to_fragmentDireccion"
+            app:destination="@id/fragmentDireccion" />
     </fragment>
     <fragment
         android:id="@+id/camera"
@@ -63,15 +72,64 @@
         <argument
             android:name="id"
             app:argType="string" />
+        <argument
+            android:name="precio"
+            app:argType="string" />
+        <argument
+            android:name="decripcion"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/frgmentProduc"
         android:name="com.example.blogapp.IU.home.HomeD.FrgmentProduc"
         android:label="fragment_frgment_produc"
         tools:layout="@layout/fragment_frgment_produc" >
+        <argument
+            android:name="id"
+            app:argType="string"
+            app:nullable="true" />
         <action
-            android:id="@+id/action_frgmentProduc_to_addProductoDialog"
-            app:destination="@id/addProductoDialog" />
+            android:id="@+id/action_frgmentProduc_to_productoAdd2"
+            app:destination="@id/productoAdd2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDireccion"
+        android:name="com.example.blogapp.IU.home.HomeD.FragmentDireccion"
+        android:label="fragment_direccion"
+        tools:layout="@layout/fragment_direccion" >
+        <action
+            android:id="@+id/action_fragmentDireccion_to_frgmentProduc"
+            app:destination="@id/frgmentProduc" />
+    </fragment>
+    <fragment
+        android:id="@+id/ordenStar"
+        android:name="com.example.blogapp.IU.home.HomeD.OrdenStar"
+        android:label="fragment_orden_star"
+        tools:layout="@layout/fragment_orden_star" >
+        <action
+            android:id="@+id/action_ordenStar_to_detalleOrden"
+            app:destination="@id/detalleOrden" />
+    </fragment>
+    <fragment
+        android:id="@+id/productoAdd2"
+        android:name="com.example.blogapp.IU.home.HomeD.ProductoAdd"
+        android:label="fragment_producto_add"
+        tools:layout="@layout/fragment_producto_add" >
+        <argument
+            android:name="descripcion"
+            app:argType="string" />
+        <argument
+            android:name="precio"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleOrden"
+        android:name="com.example.blogapp.IU.home.HomeD.DetalleOrden"
+        android:label="fragment_detalle_orden"
+        tools:layout="@layout/fragment_detalle_orden" >
         <argument
             android:name="id"
             app:argType="string" />

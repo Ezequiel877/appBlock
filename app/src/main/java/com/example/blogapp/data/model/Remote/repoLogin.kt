@@ -2,8 +2,8 @@ package com.example.blogapp.data.model.Remote
 
 import android.graphics.Bitmap
 import android.net.Uri
+import com.example.blogapp.data.model.Comercios
 import com.example.blogapp.data.model.DataSource
-import com.example.blogapp.data.model.user
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
@@ -19,12 +19,11 @@ class repoLogin {
         return query.user
     }
 
-    suspend fun singUp(email: String, passwork: String, username: String): FirebaseUser? {
-        val query =
-            FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,passwork).await()
+    suspend fun singUp(nombre:String,email: String,passwork: String): FirebaseUser? {
+        val query = FirebaseAuth.getInstance().createUserWithEmailAndPassword(nombre,email).await()
         query.user?.uid?.let {uid->
-            FirebaseFirestore.getInstance().collection("user").document(uid)
-                .set(user(email, username, " username")).await()
+            FirebaseFirestore.getInstance().collection("comercios").document(passwork)
+                .set(Comercios(nombre, email, passwork)).await()
 
         }
         return query.user

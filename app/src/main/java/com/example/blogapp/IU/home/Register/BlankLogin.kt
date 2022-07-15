@@ -15,13 +15,19 @@ import com.example.blogapp.BlogApp.presentation.presentacion.viewModel2
 import com.example.blogapp.Domien.Login.homeScremLogin
 import com.example.blogapp.IU.home.home.adapter.Result
 import com.example.blogapp.R
+import com.example.blogapp.data.model.Comercios
 import com.example.blogapp.data.model.Remote.repoLogin
-import com.example.blogapp.data.model.contantes
+import com.example.blogapp.data.model.SharedPreference
+import com.example.blogapp.data.model.constantes
 import com.example.blogapp.databinding.FragmentBlankLoginBinding
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class BlankLogin : Fragment(R.layout.fragment_blank_login) {
+
+
+    var sharePref: SharedPreference? = null
+    var selectProducto = ArrayList<Comercios>()
+    var product: Comercios? = null
     private lateinit var binding: FragmentBlankLoginBinding
     private val modelView by viewModels<viewModel2> { factory(homeScremLogin(repoLogin())) }
 
@@ -29,6 +35,10 @@ class BlankLogin : Fragment(R.layout.fragment_blank_login) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentBlankLoginBinding.bind(view)
         getDatosIn()
+        sharePref= SharedPreference(requireContext())
+        var daots=8/2
+        println(daots)
+
     }
 
     private fun getDatosIn() {
@@ -37,14 +47,40 @@ class BlankLogin : Fragment(R.layout.fragment_blank_login) {
             val email = binding.InPutText2.text.toString().trim()
             val password = binding.InPutTextAdress.text.toString().trim()
             val confirm = binding.InPutTexconfirm.text.toString().trim()
+            //val horarios = binding.InPutHorarios.text.toString().trim()
+            //val direccion = binding.InPutDireccion.text.toString().trim()
+            val comercio=Comercios(user, email, password, confirm)
             if (valided(password, confirm, user, email)) return@setOnClickListener
+            val preference =
+                PreferenceManager.getDefaultSharedPreferences(this.context)
+            val token = preference.getString(constantes.TOKEN_ID, null)
+            token?.let {
+                val firebase = FirebaseFirestore.getInstance()
+                val tokenmap = hashMapOf(Pair(constantes.TOKEN_ID, token))
+                val db = firebase.collection("comercios").document(user)
+                db.collection("token").add(tokenmap).addOnSuccessListener {
+                    Log.d("TAGTOKENSEGUARDO", "createToken: $token")
+                    preference.edit {
+                        putString(constantes.TOKEN_ID, null)
+                            .apply()
+                    }
+                }.addOnFailureListener {
+                    Log.d("TAGTOKENSEGUARDO", "createToken: $it")
+                }}
             createUser(email, password, user)
+            datosModelShared()
         }
 
     }
+    private fun datosModelShared(){
+        product= Comercios(binding.InPutusername.text.toString())
+        selectProducto.add(product!!)
+        sharePref?.save("id", selectProducto)
+    }
 
-    private fun createUser(email: String, password: String, user: String) {
-        modelView.singUn(email, password, user).observe(viewLifecycleOwner, Observer {
+
+    private fun createUser(nombre:String,email: String,pasword:String) {
+        modelView.singUn(nombre, email, pasword).observe(viewLifecycleOwner, Observer {
             when (it) {
                 is Result.Loading -> {
                     binding.progresRigt.visibility = View.VISIBLE
@@ -58,6 +94,7 @@ class BlankLogin : Fragment(R.layout.fragment_blank_login) {
                 is Result.Failure -> {
                     binding.progresRigt.visibility = View.GONE
                     binding.buttonUp.isEnabled = true
+                    Log.d("LoginResgitred", "createUser: ${it.exception}")
                     Toast.makeText(requireContext(), "error:${it.exception}", Toast.LENGTH_SHORT)
                         .show()
                 }
